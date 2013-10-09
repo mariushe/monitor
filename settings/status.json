@@ -1,8 +1,10 @@
 [
     {
-        "name": "First test service"
+        "name": "First test service",
+        "status": "PENDING"
     },
     {
-        "name": "Second test service"
+        "name": "Second test service",
+        "status": "PENDING"
     }
 ]

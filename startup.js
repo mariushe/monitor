@@ -33,7 +33,8 @@ function generateStatusFile(services) {
 
 	for (var index in services) {
 		generatedContent.push({
-			"name" : services[index].name
+			"name" : services[index].name,
+			"status" : "PENDING"
 		});
 
 		if (index == services.length-1) {
