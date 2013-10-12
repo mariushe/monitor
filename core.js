@@ -13,8 +13,9 @@ function monitorCore() {
 	function persistResult(service, msg, exitcode) {
 
 		function persist() {
-			if(fileLocked) {//we want it to match
-        		setTimeout(persist, 50);//wait 50 millisecnds then recheck
+
+			if(fileLocked) {
+        		setTimeout(persist, 50);
         		return;
     		}
 
@@ -45,6 +46,7 @@ function monitorCore() {
  		var result = spawn("./" + service.command, []);
 
         result.on('exit', function (exitcode, code) {
+        	
  			result.stdout.on('data', function (msg) {
  				persistResult(service, msg, exitcode);
         	});
@@ -53,18 +55,18 @@ function monitorCore() {
  
 	function iterateServices(services, status) {
 		for (var index in status) {
+
 			services.filter(function(toCheck) {
 				
 				if (toCheck.name == status[index].name && toCheck.host == status[index].host) {
 					executeCheck(index, status, toCheck);	
 				}
 			});
-
-			
 		}
 	}
 
 	function monitor() {
+		
 		fs.readFile(SERVICES, 'utf8', function (errReadingServices, services) {
 			fs.readFile(MONITORED_SERVICES, 'utf8', function (errReadingStatus, status) {
 
@@ -77,8 +79,8 @@ function monitorCore() {
 			 	status = JSON.parse(status);
 
  				iterateServices(services, status);
- 		});
-	});
+ 			});
+		});
 	}
 }
 
