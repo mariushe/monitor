@@ -5,9 +5,9 @@
 	"command" : "commands/hello.sh"
 },
 {
-	"name" : "Second test service",
+	"name" : "service expected to fail",
 	"host" : "First host",
-	"command" : "commands/hello.sh"
+	"command" : "commands/failed.sh"
 },
 {
         "name" : "Second test service",

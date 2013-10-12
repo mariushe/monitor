@@ -25,7 +25,7 @@ function writeFile(file, content) {
     	if(err) {
 	        console.log(err);
     	} else {
-        	console.log("The file was saved!");
+        	console.log("Generated status file");
     	}
 	}); 
 }
@@ -49,7 +49,6 @@ function generateStatusFile(services, status) {
 
 		for (var i in status) {
 			if (service.name == status[i].name && service.host == status[i].host ) {
-				console.log("Test: " + service.name + " - " + status[i].name);
 				alreadyInStatus = 1;
 			}
 		}

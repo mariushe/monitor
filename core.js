@@ -30,7 +30,6 @@ function monitorCore() {
 
 				toUpdate[0].status = exitcode;
 				toUpdate[0].message = ""+msg;
-				console.dir(status);
 
 				fs.writeFile(MONITORED_SERVICES, JSON.stringify(status, null, 4), function(err) {
     				fileLocked = 0;

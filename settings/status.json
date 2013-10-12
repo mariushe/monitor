@@ -6,10 +6,10 @@
         "message": "Hello world\n"
     },
     {
-        "name": "Second test service",
+        "name": "service expected to fail",
         "host": "First host",
-        "status": 0,
-        "message": "Hello world\n"
+        "status": 1,
+        "message": "ERROR: Couldn't execute\n"
     },
     {
         "name": "Second test service",
