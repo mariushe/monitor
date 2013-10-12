@@ -58,7 +58,8 @@ function generateStatusFile(services, status) {
 			generatedContent.push({
 				"name" : service.name,
 				"host" : service.host,
-				"status" : "PENDING"
+				"status" : "PENDING",
+				"message" : ""
 			});
 		}
 	}

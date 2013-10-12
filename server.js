@@ -1,6 +1,7 @@
 var http = require("http");
 var url = require("url");
 var startup = require("./startup");
+var core = require("./core");
 
 function onRequest(request, response) {
 	
@@ -10,4 +11,6 @@ function onRequest(request, response) {
 }
 
 startup.startup();
+core.monitorCore();
+
 http.createServer(onRequest).listen(8888);

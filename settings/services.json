@@ -1,14 +1,17 @@
 [
 {
 	"name" : "First test service",
-	"host" : "First host"
+	"host" : "First host",
+	"command" : "commands/hello.sh"
 },
 {
 	"name" : "Second test service",
-	"host" : "First host"
+	"host" : "First host",
+	"command" : "commands/hello.sh"
 },
 {
         "name" : "Second test service",
-        "host" : "Second host"
+        "host" : "Second host",
+        "command" : "commands/hello.sh"
 }
 ]

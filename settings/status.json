@@ -2,16 +2,19 @@
     {
         "name": "First test service",
         "host": "First host",
-        "status": "PENDING"
+        "status": 0,
+        "message": "Hello world\n"
     },
     {
         "name": "Second test service",
         "host": "First host",
-        "status": "PENDING"
+        "status": 0,
+        "message": "Hello world\n"
     },
     {
         "name": "Second test service",
         "host": "Second host",
-        "status": "PENDING"
+        "status": 0,
+        "message": "Hello world\n"
     }
 ]
