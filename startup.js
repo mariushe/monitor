@@ -1,18 +1,21 @@
 var fs = require('fs');
 
-function readFile(file, handle) {
+function readFile(serviceFile, statusFile, handle) {
 
-	fs.readFile(file, 'utf8', function (err, data) {
+	fs.readFile(serviceFile, 'utf8', function (errReadingServices, services) {
+		fs.readFile(statusFile, 'utf8', function (errReadingStatus, status) {
 
-		if (err) {
-			console.log('Error: ' + err);
-			return;
-		}
+			if (errReadingStatus && errReadingServices) {
+				console.log('Error: ' + errReadingServices + errReadingStatus);
+				return;
+			}
  
- 	var fileContent = JSON.parse(data);
+		 	services = JSON.parse(services);
+		 	status = JSON.parse(status);
 
- 	handle(fileContent);
- 	});
+ 			handle(services, status);
+ 		});
+	});
 }
 
 function writeFile(file, content) {
@@ -27,24 +30,42 @@ function writeFile(file, content) {
 	}); 
 }
 
-function generateStatusFile(services) {
 
-	generatedContent = [];
+function generateStatusFile(services, status) {
+
+	generatedContent = status;
 
 	for (var index in services) {
-		generatedContent.push({
-			"name" : services[index].name,
-			"status" : "PENDING"
-		});
+		
+		checkIfServiceExistInStatus(services[index]);
 
 		if (index == services.length-1) {
 			writeFile("settings/status.json", JSON.stringify(generatedContent, null, 4));		
 		}
 	}
+
+	function checkIfServiceExistInStatus(service) {
+		var alreadyInStatus = 0;
+
+		for (var i in status) {
+			if (service.name == status[i].name && service.host == status[i].host ) {
+				console.log("Test: " + service.name + " - " + status[i].name);
+				alreadyInStatus = 1;
+			}
+		}
+
+		if (!alreadyInStatus) {
+			generatedContent.push({
+				"name" : service.name,
+				"host" : service.host,
+				"status" : "PENDING"
+			});
+		}
+	}
 }
 
 function startup() {
-	readFile("settings/services.json", generateStatusFile);	
+	readFile("settings/services.json", "settings/status.json", generateStatusFile);	
 }
 
 exports.startup = startup;

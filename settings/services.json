@@ -1,8 +1,14 @@
 [
 {
-	"name" : "First test service"
+	"name" : "First test service",
+	"host" : "First host"
 },
 {
-	"name" : "Second test service"
+	"name" : "Second test service",
+	"host" : "First host"
+},
+{
+        "name" : "Second test service",
+        "host" : "Second host"
 }
 ]

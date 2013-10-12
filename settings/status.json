@@ -1,10 +1,17 @@
 [
     {
         "name": "First test service",
+        "host": "First host",
         "status": "PENDING"
     },
     {
         "name": "Second test service",
+        "host": "First host",
+        "status": "PENDING"
+    },
+    {
+        "name": "Second test service",
+        "host": "Second host",
         "status": "PENDING"
     }
 ]
