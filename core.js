@@ -7,7 +7,7 @@ function monitorCore() {
 
 	var MONITORED_SERVICES="settings/status.json";
 	var SERVICES="settings/services.json";
-
+	
 	var monitorLoop = setInterval(monitor, 5000);
 
 	function persistResult(service, msg, exitcode) {
@@ -15,12 +15,11 @@ function monitorCore() {
 		function persist() {
 
 			if(fileLocked) {
-        		setTimeout(persist, 50);
-        		return;
-    		}
+				setTimeout(persist, 50);
+				return;
+			}
 
-    		fileLocked = 1;
-
+			fileLocked = 1;
 			fs.readFile(MONITORED_SERVICES, 'utf8', function (err, status) {
 
 				status = JSON.parse(status);
@@ -37,26 +36,26 @@ function monitorCore() {
 				toUpdate[0].message = ""+msg;
 
 				fs.writeFile(MONITORED_SERVICES, JSON.stringify(status, null, 4), function(err) {
-    				fileLocked = 0;
+					fileLocked = 0;
 				});
- 			});
- 		}
+			});
+		}
 
- 		persist();
+		persist();
 	}
 
- 	function executeCheck(index, status, service) {
+	function executeCheck(index, status, service) {
 
- 		var result = spawn("./" + service.command, []);
+		var result = spawn("./" + service.command, []);
 
 		result.on('exit', function (exitcode, code) {
 
- 			result.stdout.on('data', function (msg) {
- 				persistResult(service, msg, exitcode);
-        	});
-        });
- 	}
- 
+			result.stdout.on('data', function (msg) {
+				persistResult(service, msg, exitcode);
+			});
+		});
+	}
+	
 	function iterateServices(services, status) {
 		for (var index in status) {
 
@@ -78,12 +77,12 @@ function monitorCore() {
 					console.log('Error: ' + errReadingServices + errReadingStatus);
 					return;
 				}
- 
-			 	services = JSON.parse(services);
-			 	status = JSON.parse(status);
+				
+				services = JSON.parse(services);
+				status = JSON.parse(status);
 
- 				iterateServices(services, status);
- 			});
+				iterateServices(services, status);
+			});
 		});
 	}
 }
