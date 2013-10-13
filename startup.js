@@ -9,12 +9,12 @@ function readFile(serviceFile, statusFile, handle) {
 				console.log('Error: ' + errReadingServices + errReadingStatus);
 				return;
 			}
- 
-		 	services = JSON.parse(services);
-		 	status = JSON.parse(status);
+			
+			services = JSON.parse(services);
+			status = JSON.parse(status);
 
- 			handle(services, status);
- 		});
+			handle(services, status);
+		});
 	});
 }
 
@@ -22,11 +22,11 @@ function writeFile(file, content) {
 
 	fs.writeFile(file, content, function(err) {
 
-    	if(err) {
-	        console.log(err);
-    	} else {
-        	console.log("Generated status file");
-    	}
+		if(err) {
+			console.log(err);
+		} else {
+			console.log("Generated status file");
+		}
 	}); 
 }
 
