@@ -10,8 +10,8 @@
 	"command" : "commands/failed.sh"
 },
 {
-        "name" : "Second test service",
+        "name" : "Check that file exists",
         "host" : "Second host",
-        "command" : "commands/hello.sh"
+        "command" : "commands/check_file_exists.sh"
 }
 ]

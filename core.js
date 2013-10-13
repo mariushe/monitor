@@ -8,7 +8,7 @@ function monitorCore() {
 	var MONITORED_SERVICES="settings/status.json";
 	var SERVICES="settings/services.json";
 
-	var monitorLoop = setInterval(monitor, 2000);
+	var monitorLoop = setInterval(monitor, 5000);
 
 	function persistResult(service, msg, exitcode) {
 
@@ -29,6 +29,10 @@ function monitorCore() {
 					return update.name == service.name && update.host == service.host;
 				});
 
+				if (toUpdate[0].status != exitcode) {
+					var date = new Date();
+					toUpdate[0].since = date.getMonth() + "/" + date.getDate() + "/" + date.getFullYear() + " " + date.getHours() + ":" + date.getMinutes();
+				}
 				toUpdate[0].status = exitcode;
 				toUpdate[0].message = ""+msg;
 
@@ -46,7 +50,7 @@ function monitorCore() {
  		var result = spawn("./" + service.command, []);
 
         result.on('exit', function (exitcode, code) {
-        	
+
  			result.stdout.on('data', function (msg) {
  				persistResult(service, msg, exitcode);
         	});
