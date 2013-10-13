@@ -1,37 +1,23 @@
 [
     {
-        "name": "First test service",
-        "host": "First host",
-        "status": 0,
-        "message": "Hello world\n",
-        "since": "9/13/2013 14:23"
-    },
-    {
-        "name": "service expected to fail",
-        "host": "First host",
-        "status": 1,
-        "message": "ERROR: Couldn't execute\n",
-        "since": "9/13/2013 14:23"
-    },
-    {
-        "name": "Check that file exists",
-        "host": "Second host",
-        "status": 1,
-        "message": "CRITICAL: File doesnt exist\n",
-        "since": "9/13/2013 14:27"
-    },
-    {
         "name": "Check that can write hello world",
         "host": "localhost",
         "status": 0,
         "message": "Hello world\n",
-        "since": "9/13/2013 19:31"
+        "since": "9/13/2013 19:36"
     },
     {
         "name": "Check that can fail",
         "host": "localhost",
         "status": 1,
         "message": "ERROR: Couldn't execute\n",
-        "since": "9/13/2013 19:31"
+        "since": "9/13/2013 19:36"
+    },
+    {
+        "name": "Check that file exists",
+        "host": "Second host",
+        "status": 1,
+        "message": "CRITICAL: File doesnt exist\n",
+        "since": "9/13/2013 19:36"
     }
 ]
