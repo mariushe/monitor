@@ -30,7 +30,6 @@ function writeFile(file, content) {
 	}); 
 }
 
-
 function generateStatusFile(services, status) {
 
 	generatedContent = status;

@@ -3,14 +3,24 @@ var url = require("url");
 var startup = require("./startup");
 var core = require("./core");
 
-function onRequest(request, response) {
-	
-	response.writeHead(200, {"Content-Type":"application/json"});
-    response.write("Alive!");
-    response.end();
+function startApplication(route, handle) {
+    function onRequest(request, response) {
+
+    	var requestUrl = url.parse(request.url, true);
+        var pathname = requestUrl.pathname;
+        var query = requestUrl.query;
+
+        console.log("Request received.");
+
+        route(handle, pathname, query, response);
+    }
+
+    startup.startup();
+	core.monitorCore();
+
+    http.createServer(onRequest).listen(8888);
+
+    console.log("Server has started.");
 }
 
-startup.startup();
-core.monitorCore();
-
-http.createServer(onRequest).listen(8888);
+exports.startApplication = startApplication;

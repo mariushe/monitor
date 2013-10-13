@@ -1,17 +1,17 @@
 [
 {
-	"name" : "First test service",
-	"host" : "First host",
+	"name" : "Check that can write hello world",
+	"host" : "localhost",
 	"command" : "commands/hello.sh"
 },
 {
-	"name" : "service expected to fail",
-	"host" : "First host",
+	"name" : "Check that can fail",
+	"host" : "localhost",
 	"command" : "commands/failed.sh"
 },
 {
-        "name" : "Check that file exists",
-        "host" : "Second host",
-        "command" : "commands/check_file_exists.sh"
+    "name" : "Check that file exists",
+    "host" : "Second host",
+    "command" : "commands/check_file_exists.sh"
 }
 ]
