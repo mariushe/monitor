@@ -49,7 +49,7 @@ function monitorCore() {
 
  		var result = spawn("./" + service.command, []);
 
-        result.on('exit', function (exitcode, code) {
+		result.on('exit', function (exitcode, code) {
 
  			result.stdout.on('data', function (msg) {
  				persistResult(service, msg, exitcode);
