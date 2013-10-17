@@ -3,12 +3,32 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
         <script type="text/JavaScript" src="assets/js/application.js"></script>
+        <script type="text/JavaScript" src="assets/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/application.css">
 
 	</head>
   <body>
-    Hello World!
+    <div align=center>
+<div id="tabmain" class="tabbable  tabs-left">
+    <ul class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"> <a href="#foodTab" data-toggle="tab">
+    All</a>
+        </li>
+        <li class=""> <a href="#toyTab" data-toggle="tab">
+    Localhost</a>
+        </li>
+        <li class=""> <a href="#clothesTab" data-toggle="tab">
+    Remote host</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="foodTab">Oh my god it's the food tab!</div>
+        <div class="tab-pane fade" id="toyTab">Toy tab!</div>
+        <div class="tab-pane fade" id="clothesTab">clothing tab</div>
+    </div>
+</div>
+</div>
 
   </body>
 </html>

@@ -11,6 +11,14 @@ function application(query, response) {
     response.end();
 }
 
+function bootstrapJs(query, response) {
+    var body = fs.readFileSync("assets/js/bootstrap.min.js");
+
+    response.writeHead(200, {"Content-Type":"text/JavaScript"});
+    response.write(body);
+    response.end();
+}
+
 function bootstrap(query, response) {
     var body = fs.readFileSync("assets/css/bootstrap.min.css");
 
@@ -49,5 +57,6 @@ exports.application = application;
 exports.getData = getData;
 exports.getMonitor = getMonitor;
 exports.bootstrap = bootstrap;
+exports.bootstrapJs = bootstrapJs;
 exports.application = application;
 exports.css = css;
