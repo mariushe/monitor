@@ -57,6 +57,7 @@ function monitorCore() {
 	}
 	
 	function iterateServices(services, status) {
+		
 		for (var index in status) {
 
 			services.filter(function(toCheck) {
@@ -69,7 +70,7 @@ function monitorCore() {
 	}
 
 	function monitor() {
-		
+
 		fs.readFile(SERVICES, 'utf8', function (errReadingServices, services) {
 			fs.readFile(MONITORED_SERVICES, 'utf8', function (errReadingStatus, status) {
 
