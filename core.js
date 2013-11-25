@@ -20,6 +20,7 @@ function monitorCore() {
 			}
 
 			fileLocked = 1;
+			
 			fs.readFile(MONITORED_SERVICES, 'utf8', function (err, status) {
 
 				status = JSON.parse(status);
@@ -57,7 +58,7 @@ function monitorCore() {
 	}
 	
 	function iterateServices(services, status) {
-		
+
 		for (var index in status) {
 
 			services.filter(function(toCheck) {
